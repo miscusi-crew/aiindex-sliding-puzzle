@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sliding Puzzle</title>
+<link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="base.css">
+<style>
+  .board{display:grid;gap:.35rem;padding:.4rem;border-radius:.75rem;background:var(--line);max-width:22rem;aspect-ratio:1;margin:.75rem 0;touch-action:none}
+  .board button{padding:0;font-weight:700;font-size:clamp(1rem,6vw,1.8rem);background:var(--card);border-radius:.4rem;transition:transform .08s}
+  .board button.empty{visibility:hidden}
+  .board button.home{background:color-mix(in srgb,var(--good) 18%,var(--card))}
+</style>
+</head>
+<body>
+<main>
+  <h1>Sliding Puzzle</h1>
+  <p class="sub">Click a tile next to the gap to slide it, or use the arrow keys. Put the numbers back in order.</p>
+  <div class="row">
+    <label for="size">Size</label>
+    <select id="size"><option value="3">3×3</option><option value="4" selected>4×4</option><option value="5">5×5</option></select>
+    <button id="new" class="primary">Shuffle</button>
+  </div>
+  <div class="stats"><span>Moves <b id="moves">0</b></span><span>Time <b id="time">0</b>s</span><span>Best <b id="best">–</b></span></div>
+  <div class="board" id="board" aria-label="Puzzle"></div>
+  <p class="msg" id="msg" role="status"></p>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
